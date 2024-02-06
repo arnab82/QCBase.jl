@@ -82,13 +82,16 @@ function possible_focksectors(c::MOCluster; delta_elec::Tuple=())
         ref_b = delta_elec[2]
         delta = delta_elec[3]
     end
-
+    println("the value of ref_a is",ref_a)
+    println("the value of ref_b is",ref_b)
+    println("the value of delta is",delta)
     no = length(c)
    
     fsectors::Vector{Tuple} = []
     for na in 0:no
         for nb in 0:no 
             if length(delta_elec) != 0
+		println("the value of abs(na-ref_a)+abs(nb-ref_b) is", abs(na-ref_a)+abs(nb-ref_b))
                 if abs(na-ref_a)+abs(nb-ref_b) > delta
                     continue
                 end
